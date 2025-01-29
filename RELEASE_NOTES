@@ -2,6 +2,8 @@ R3.1    2025-01-28 Jeremy Lorelli
     Fix numerous python3 incompatibilities
 	Removed cvs2git functionality (not supported by Python 3)
 	Removed pspkg blurb from setup_eco_env
+	Fix syntax warnings due to regexp in normal strings
+	Fix issues on Python <3.7 due to text= key use in subprocess functions
 
 R3.0	2024-08-30 Jeremy Lorelli
 	Converted all scripts to Python 3
