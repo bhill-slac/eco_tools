@@ -298,7 +298,7 @@ def hasIncludeDotDotReleaseSite():
         configFile = open( configFilePath, 'r')
         for line in configFile:
             # Check included ../../RELEASE_SITE file unless it is commented
-            if re.search('^[^\#]include(.*)/../../RELEASE_SITE', line):
+            if re.search(r'^[^\#]include(.*)/../../RELEASE_SITE', line):
                 return True
     return False
 
@@ -311,8 +311,8 @@ def doesPkgNeedMacro( macroName ):
     # TODO: Check all configure/RELEASE* files
     definesMacro = False
     needsMacro = False
-    definesMacroRegExp = re.compile( '^%s\s*=\s*\S' % macroName )
-    needsMacroRegExp   = re.compile( '\$\(' + macroName )
+    definesMacroRegExp = re.compile( r'^%s\s*=\s*\S' % macroName )
+    needsMacroRegExp   = re.compile( r'\$\(' + macroName )
     for filename in [ 'RELEASE', 'RELEASE.local' ]:
         configFilePath = os.path.join( 'configure', filename )
         if not os.path.isfile( configFilePath ):
